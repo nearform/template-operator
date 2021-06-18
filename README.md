@@ -41,7 +41,7 @@ $ kubectl apply -f kinD/manifest.yml
 ```bash
 $ make docker-build docker-push IMG="localhost:5000/template-operator:v0.0.1"
 $ make deploy IMG="localhost:5000/template-operator:v0.0.1"
-$ kubectl apply -f config/samples/templates_v1alpha1_template.yaml
+$ kubectl apply -f config/samples/core_v1alpha1_template.yaml
 ```
 
 ## Developing
@@ -50,8 +50,8 @@ You can create a new Operator Project.
 
 ```bash
 $ cd $PROJECT_HOME
-$ operator-sdk init --repo github.com/Nearform/template-operator --domain template-operator.nearform.com
-$ operator-sdk create api --group templates --version v1alpha1 --kind Template --resource --controller
+$ operator-sdk init --repo github.com/Nearform/template-operator --domain nearform.com
+$ operator-sdk create api --group core --version v1alpha1 --kind Template --resource --controller
 ```
 
 The controller needs to be installed into your local kinD cluster
@@ -61,7 +61,7 @@ make install
 
 The Operator SDK created an CRD for you, you can install now.
 ```bash
-kubectl apply -f config/samples/templates_v1alpha1_template.yaml
+kubectl apply -f config/samples/core_v1alpha1_template.yaml
 ```
 
 The controller can be run locally for debugging and testing.
